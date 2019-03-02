@@ -8,7 +8,7 @@ class App extends React.Component {
     }
 
     handleClick() {
-        // onClick, play atached audio source
+        // onClick, play child div audio source
     }
 
     render() {
