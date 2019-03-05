@@ -1,24 +1,36 @@
-/* list of drum letters, set color via list */
+$font-size: 2em;
+$white: #fff;
+$drum-bgcolor: black;
+$drum-bgcolor-hover: purple;
+$over-color: rgba(25, 25, 112, 0.8);
+$over-color2: rgba(86, 64, 68, 0.8);
 
 body {
-  font-size: 1em;
+  margin: 0 auto;
+  font-size: $font-size;
+  color: $white;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 70%;
+  background: linear-gradient($over-color, $over-color2)
+      no-repeat center center fixed,
+    url(https://www.dropbox.com/s/7mjohmycgj6op4e/drums.jpg?dl=1)
+      no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #display {
   margin-top: 10%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 #drums {
   margin-top: 10%;
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,12 +38,28 @@ body {
 }
 
 .drum-pad {
+  font-size: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  background-color: darkblue;
+  color: $white;
+  background-color: $drum-bgcolor;
   margin: 3px;
-  width: 90px;
+  width: 80px;
   border-radius: 5em;
 }
+
+.drum-pad:hover {
+  background-color: $drum-bgcolor-hover;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 1em;
+  }
+  
+  .drum-pad {
+    font-size: 1em;
+    width: 50px;
+  }
+} 
