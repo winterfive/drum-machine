@@ -11,6 +11,21 @@ const SOUNDS = [
 ];
 
 class Drum extends React.Component {
+  
+  handleKeydown = e => {
+    if(e.keyCode === this.props.letter.charCodeAt()) {
+      this.audio.play()
+      this.audio.currentTime = 0
+      this.props.handleDisplay(this.props.id)
+    }
+  }
+  
+  handleClick = () => {
+    this.audio.play();
+    this.audio.currentTime = 0;
+    this.props.handleDisplay(this.props.id)
+  }
+  
   render() {
     return(
     <div 
@@ -18,8 +33,13 @@ class Drum extends React.Component {
       id={this.props.id}
       onCLick={this.handleClick}
       >
-      <h1>{this.props.letter}</h1>
-             
+        <h1>{this.props.letter}</h1>
+        <audio
+          className="clip"
+          id={this.props.letter}
+          src={this.props.source}
+          ref={ref => this.audio = ref}>
+        </audio>             
     </div>
     )
   }
@@ -28,18 +48,23 @@ class Drum extends React.Component {
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      display: "TODO"
+    }
   }
+  
+  handleDisplay = display => this.setState({ display })
   
   render() {
     return(
       <div id="drum-machine">
-        <div id="display">
+        <div id="display">{this.state.display}</div>
+        <div id="drums">
           {SOUNDS.map(s => (
             <Drum
               id={s.id}
               letter={s.letter}
-              
-              
+              src={s.source}          
               />
           ))}
         </div>  
