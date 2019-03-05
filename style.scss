@@ -1,0 +1,29 @@
+/* list of drum letters, set color via list */
+
+body {
+  font-size: 1em;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+
+#display {
+  height: 80vh;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-pad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkblue;
+  margin: 3px;
+  width: 90px;
+  border-radius: 5em;
+}
